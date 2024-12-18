@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weed Name Generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 300px;
+      }
+      h1 {
+        font-size: 24px;
+        color: #333;
+      }
+      input {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #218838;
+      }
+      .result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Weed Name Generator</h1>
+      <input type="text" id="inputWord" placeholder="Enter a mood or word" />
+      <button onclick="generateName()">Generate Name</button>
+      <div class="result" id="result"></div>
+    </div>
+
+    <script>
+      function generateName() {
+        const userInput = document.getElementById("inputWord").value.trim();
+        if (!userInput) {
+          document.getElementById("result").innerText =
+            "Please enter a word or mood!";
+          return;
+        }
+
+        const adjectives = [
+          "Chill",
+          "Dank",
+          "Frosty",
+          "Mellow",
+          "Cosmic",
+          "Dreamy",
+          "Lush",
+          "Golden",
+          "Electric",
+        ];
+        const nouns = [
+          "Blaze",
+          "Cloud",
+          "Haze",
+          "Herb",
+          "Vibe",
+          "Mist",
+          "Grove",
+          "Rush",
+          "Euphoria",
+        ];
+
+        const randomAdjective =
+          adjectives[Math.floor(Math.random() * adjectives.length)];
+        const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+
+        const weedName = `${randomAdjective} ${randomNoun} of ${userInput}`;
+
+        document.getElementById(
+          "result"
+        ).innerText = `Your custom weed name: ${weedName}`;
+      }
+    </script>
+  </body>
+</html>
